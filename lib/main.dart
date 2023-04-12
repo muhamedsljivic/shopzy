@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:market_mate/screens/auth/sign_up/sign_up_screen_birthdate.dart';
+import 'package:market_mate/screens/auth/sign_up/sign_up_screen_email.dart';
+import 'package:market_mate/screens/auth/sign_up/sign_up_screen_gender.dart';
+import 'package:market_mate/screens/auth/sign_up/sign_up_screen_name.dart';
+import 'package:market_mate/screens/auth/sign_up/sign_up_screen_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,39 +12,22 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Market Mate',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Shopzy'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: Text(
-          'Cooming soon',
-        ),
-      ),
+      routes: {
+        SignUpName.routeName: (context) => const SignUpName(),
+        BirthDateSignUp.routeName: (context) => const BirthDateSignUp(),
+        SignUpGender.routeName: (context) => const SignUpGender(),
+        SignUpEmail.routeName: (context) => const SignUpEmail(),
+        SignUpPassword.routeName: (context) => const SignUpPassword(),
+      },
+      home: const SignUpName(),
     );
   }
 }
